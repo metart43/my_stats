@@ -1,3 +1,16 @@
 .user_container{
   borde
 }
+
+.side_menu_container{
+  padding-top: 40px;
+  padding-left: 25px;
+}
+
+#side-button1-match{
+  padding-top: 10px;
+}
+
+#side-button1-team{
+  padding-top: 10px;
+}

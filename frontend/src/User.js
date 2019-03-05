@@ -5,6 +5,7 @@ class User {
     this.name = user.name
     this.matches = user.matches
     this.teams = user.teams
+<<<<<<< HEAD
   }
 
   render() {
@@ -12,3 +13,16 @@ class User {
     userName.innerText = this.name
   }
 }
+=======
+    User.all.push(this)
+  }
+
+  render() {
+    let userName = document.createElement('h2')
+    userName.innerText = this.name
+    return userName
+  }
+}
+
+User.all = []
+>>>>>>> teams
