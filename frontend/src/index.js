@@ -11,28 +11,13 @@ function getUserUrl() {
 function fetchUserInfo() {
   fetch(getUserUrl())
     .then(resp => resp.json())
-    .then(userData => renderUser(userData))
+    .then(userData => {
+      let userInstance = new User(userData)
+     document.querySelector('#user-name').appendChild(userInstance.render())})
 }
 
 // Renders the user from the JSON
-function renderUser(userData) {
-  let userDiv = document.querySelector('#user-info')
 
-  let userName = document.querySelector('#user-name')
-  userName.innerText = userData.name
-
-  let userMatches = document.querySelector('#user-matches')
-  let matchList = document.createElement('ul')
-  userData.matches.forEach(match => renderMatch(match, matchList))
-
-  let userHeroes = document.querySelector('#user-heroes')
-  let heroList = document.createElement('ul')
-  userData.matches.forEach(match => renderHero(match, heroList))
-  
-  userMatches.appendChild(matchList)
-
-  // debugger
-}
 
 // Renders data from each match
 function renderMatch(match, matchList) {
@@ -69,4 +54,8 @@ function renderHero(match, heroList) {
   // `
 
   // heroList.appendChild(listItem)
+}
+
+function functionName() {
+
 }

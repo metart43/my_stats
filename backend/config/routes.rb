@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   resources :users, except: [:destroy, :index]
   resources :matches, only: [:create, :destroy, :update]
   resources :heros, only: [:show]
+  resources :teams, only: [:show, :create, :update]
 end
