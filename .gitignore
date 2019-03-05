@@ -14,13 +14,9 @@ tmp/
 */tmp/cache/*
 !/log/.keep
 !/tmp/.keep
-<<<<<<< HEAD
  backend/log/development.log
 backend/tmp/cache/bootsnap-load-path-cache
-=======
 backend/tmp/cache/*
->>>>>>> teams
-
 # Ignore uploaded files in development
 /storage/*
 !/storage/.keep
