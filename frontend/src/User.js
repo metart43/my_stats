@@ -16,31 +16,61 @@ class User {
   }
 
   renderMatches(){
-    document.querySelector('.display-container').innerHTML = ''
+    let dispContainer = document.querySelector(".display-container")
+    dispContainer.innerHTML = ''
+    let matchTable = document.createElement('table')
+    matchTable.classList = "table"
+    matchTable.innerHTML = `
+      <thead>
+        <tr>
+          <th scope="col">Match Played</th>
+          <th scope="col">Hero</th>
+          <th scope="col">Kills</th>
+          <th scope="col">Deaths</th>
+          <th scope="col">Assists</th>
+          <th scope="col">Win/Loss</th>
+        </tr>
+      </thead>
+    `
+    let tableBody = document.createElement('tbody')
     this.matches.forEach(userMatch => {
       let foundMatch = Match.all.find(match => match.id === userMatch.id)
-      document.querySelector(".display-container").appendChild(foundMatch.render())
+      tableBody.prepend(foundMatch.render())
     })
+    matchTable.appendChild(tableBody)
+    dispContainer.appendChild(matchTable)
   }
 
   renderHeroes(){
-    document.querySelector(".display-container").innerHTML = ''
+    let dispContainer = document.querySelector(".display-container")
+    dispContainer.innerHTML = ''
+    let heroTable = document.createElement('table')
+    heroTable.classList = "table"
+    heroTable.innerHTML = `
+      <thead>
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Kills</th>
+          <th scope="col">Deaths</th>
+          <th scope="col">Assists</th>
+          <th scope="col">Win %</th>
+        </tr>
+      </thead>
+    `
+    let tableBody = document.createElement('tbody')
     this.heroes.forEach(hero => {
-      let heroListItem = document.createElement('li')
-      heroListItem.innerHTML = `
-        <div class="match-card">
-          <div class="hero-name">
-            ${hero.hero.name} 
-          </div>
-          <div class="kda">
-            K/D/A: ${hero.kills}/${hero.deaths}/${hero.assists}</div>
-          <div class="result">
-            ${hero.result * 100}%
-          </div>
-        </div>
+      let heroRow = document.createElement('tr')
+      heroRow.innerHTML = `
+        <th scope="row">${hero.hero.name}</th>
+        <td>${hero.kills}</td>
+        <td>${hero.deaths}</td>
+        <td>${hero.assists}</td>
+        <td>${hero.result * 100}%</td>
       `
-      document.querySelector(".display-container").appendChild(heroListItem)
+      tableBody.appendChild(heroRow)
     })
+    heroTable.appendChild(tableBody)
+    dispContainer.appendChild(heroTable)
   }
 }
 

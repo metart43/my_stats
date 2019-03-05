@@ -7,28 +7,29 @@ class Match {
     this.deaths = match.deaths
     this.assists = match.assists
     this.result = match.result
+    this.time = this.formatDate(match.created_at)
     Match.all.push(this)
     this.addUserHero()
   }
 
+  formatDate(date){
+    let newD = new Date(date)
+    return `${newD.toLocaleTimeString()} ${newD.toLocaleDateString()}`
+  }
+
   // Renders data from each match
   render() {
-    let listItem = document.createElement('li')
+    let matchRow = document.createElement('tr')
 
-    listItem.innerHTML = `
-    <div class="match-card">
-      <div class="hero-name">
-        ${this.hero.name}
-      </div>
-      <div class="kda">
-        K/D/A: ${this.kills}/${this.deaths}/${this.assists}
-      </div>
-      <div class="result">
-        ${this.result? "Win" : "Loss"}
-      </div>
-    </div>
+    matchRow.innerHTML = `
+      <th>${this.time}</th>
+      <td>${this.hero.name}</td>
+      <td>${this.kills}</td>
+      <td>${this.deaths}</td>
+      <td>${this.assists}</td>
+      <td>${this.result? "Win" : "Loss"}</td>
     `
-    return listItem
+    return matchRow
   }
 
   addUserHero(){
