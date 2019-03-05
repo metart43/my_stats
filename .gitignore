@@ -14,6 +14,7 @@ tmp/
 */tmp/cache/*
 !/log/.keep
 !/tmp/.keep
+backend/tmp/cache/*
 
 # Ignore uploaded files in development
 /storage/*
