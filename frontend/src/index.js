@@ -13,13 +13,13 @@ function fetchUserInfo() {
     .then(resp => resp.json())
     .then(userData => {
       let userInstance = new User(userData)
-     document.querySelector('#user-name').appendChild(userInstance.render())})
+      document.querySelector('#user-name').appendChild(userInstance.render())
+      userData.matches.forEach(match => {
+        let matchInstance = new Match(match)
+        document.querySelector("#match-list").appendChild(matchInstance.render(userData))
+      })
+    })
 }
-
-// Renders the user from the JSON
-
-
-
 
 function renderHero(match, heroList) {
   let listItem = document.createElement('li')
@@ -36,29 +36,3 @@ function renderHero(match, heroList) {
 
   heroList.appendChild(listItem)
 }
-
-<<<<<<< HEAD
-function renderHero(match, heroList) {
-  // let listItem = document.createElement('li')
-  // listItem.innerHTML = `
-  //   <div class="hero-card">
-  //     <div class="hero-name">
-  //       ${match.hero.name}
-  //     </div>
-  //     <div class="kda">
-  //       K/D/A: ${match.kills}/${match.deaths}/${match.assists}
-  //     </div>
-  //   </div>
-  // `
-
-  // heroList.appendChild(listItem)
-}
-
-function functionName() {
-
-}
-=======
-function heroKDA(user) {
-  
-}
->>>>>>> user-page
