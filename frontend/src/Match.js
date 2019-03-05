@@ -9,23 +9,30 @@ class Match {
   }
 
   // Renders data from each match
-  render(matchList) {
+  render(userData) {
     let listItem = document.createElement('li')
 
     listItem.innerHTML = `
     <div class="match-card">
       <div class="hero-name">
-        ${match.hero.name}
+        ${this.hero.name}
       </div>
       <div class="kda">
-        K/D/A: ${match.kills}/${match.deaths}/${match.assists}
+        K/D/A: ${this.kills}/${this.deaths}/${this.assists}
       </div>
       <div class="result">
-        ${match.result? "Win" : "Loss"}
+        ${this.result? "Win" : "Loss"}
       </div>
     </div>
-  `
+    `
+    this.renderUserHeroes(userData)
+    return listItem
+  }
 
-    matchList.appendChild(listItem)
+  renderUserHeroes(userData){
+    if (userData.id === this.user.id) {
+      // debugger
+      console.log(this.hero)
+    }
   }
 }

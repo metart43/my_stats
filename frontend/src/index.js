@@ -13,49 +13,10 @@ function fetchUserInfo() {
     .then(resp => resp.json())
     .then(userData => {
       let userInstance = new User(userData)
-     document.querySelector('#user-name').appendChild(userInstance.render())})
-}
-
-// Renders the user from the JSON
-
-
-// Renders data from each match
-function renderMatch(match, matchList) {
-  let listItem = document.createElement('li')
-
-  listItem.innerHTML = `
-    <div class="match-card">
-      <div class="hero-name">
-        ${match.hero.name}
-      </div>
-      <div class="kda">
-        K/D/A: ${match.kills}/${match.deaths}/${match.assists}
-      </div>
-      <div class="result">
-        ${match.result? "Win" : "Loss"}
-      </div>
-    </div>
-  `
-
-  matchList.appendChild(listItem)
-}
-
-function renderHero(match, heroList) {
-  // let listItem = document.createElement('li')
-  // listItem.innerHTML = `
-  //   <div class="hero-card">
-  //     <div class="hero-name">
-  //       ${match.hero.name}
-  //     </div>
-  //     <div class="kda">
-  //       K/D/A: ${match.kills}/${match.deaths}/${match.assists}
-  //     </div>
-  //   </div>
-  // `
-
-  // heroList.appendChild(listItem)
-}
-
-function functionName() {
-
+      document.querySelector('#user-name').appendChild(userInstance.render())
+      userData.matches.forEach(match => {
+        let matchInstance = new Match(match)
+        document.querySelector("#match-list").appendChild(matchInstance.render(userData))
+      })
+    })
 }
