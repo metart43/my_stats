@@ -16,7 +16,7 @@ function fetchUserInfo() {
       document.querySelector('#user-name').appendChild(userInstance.render())
       userData.matches.forEach(match => {
         let matchInstance = new Match(match)
-        document.querySelector("#match-list").appendChild(matchInstance.render(userData))
+        document.querySelector("#match-list").appendChild(matchInstance.render())
       })
     })
 }

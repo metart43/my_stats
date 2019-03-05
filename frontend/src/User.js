@@ -4,6 +4,7 @@ class User {
     this.name = user.name
     this.matches = user.matches
     this.teams = user.teams
+    this.heroes = []
     User.all.push(this)
   }
 

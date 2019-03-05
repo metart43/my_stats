@@ -6,10 +6,11 @@ class Match {
     this.kills = match.kills
     this.deaths = match.deaths
     this.assists = match.assists
+    this.addUserHero()
   }
 
   // Renders data from each match
-  render(userData) {
+  render() {
     let listItem = document.createElement('li')
 
     listItem.innerHTML = `
@@ -25,14 +26,17 @@ class Match {
       </div>
     </div>
     `
-    this.renderUserHeroes(userData)
     return listItem
   }
 
-  renderUserHeroes(userData){
-    if (userData.id === this.user.id) {
+  addUserHero(){
+    let foundUser = User.all.find(user => user.id === this.user.id)
+    let foundHero = foundUser.heroes.find(hero => hero.hero === this.hero)
+    
+    if (foundUser && !foundHero) {
+      foundUser.heroes.push({hero: this.hero, kills: this.kills, deaths: this.deaths, assists: this.assists, result: this.result})
+      console.log(foundUser.heroes)
       // debugger
-      console.log(this.hero)
     }
   }
 }
