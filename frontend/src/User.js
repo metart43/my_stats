@@ -6,7 +6,6 @@ class User {
     this.matches = user.matches
     this.teams = user.teams
     User.all.push(this)
-    this.heroes = []
   }
 
   render() {

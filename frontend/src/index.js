@@ -20,19 +20,3 @@ function fetchUserInfo() {
       })
     })
 }
-
-function renderHero(match, heroList) {
-  let listItem = document.createElement('li')
-  listItem.innerHTML = `
-    <div class="hero-card">
-      <div class="hero-name">
-        ${match.hero.name}
-      </div>
-      <div class="kda">
-        K/D/A: ${match.kills}/${match.deaths}/${match.assists}
-      </div>
-    </div>
-  `
-
-  heroList.appendChild(listItem)
-}
