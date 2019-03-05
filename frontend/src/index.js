@@ -34,39 +34,24 @@ function renderUser(userData) {
   // debugger
 }
 
-// Renders data from each match
-function renderMatch(match, matchList) {
-  let listItem = document.createElement('li')
 
+
+function renderHero(match, heroList) {
+  let listItem = document.createElement('li')
   listItem.innerHTML = `
-    <div class="match-card">
+    <div class="hero-card">
       <div class="hero-name">
         ${match.hero.name}
       </div>
       <div class="kda">
         K/D/A: ${match.kills}/${match.deaths}/${match.assists}
       </div>
-      <div class="result">
-        ${match.result? "Win" : "Loss"}
-      </div>
     </div>
   `
 
-  matchList.appendChild(listItem)
+  heroList.appendChild(listItem)
 }
 
-function renderHero(match, heroList) {
-  // let listItem = document.createElement('li')
-  // listItem.innerHTML = `
-  //   <div class="hero-card">
-  //     <div class="hero-name">
-  //       ${match.hero.name}
-  //     </div>
-  //     <div class="kda">
-  //       K/D/A: ${match.kills}/${match.deaths}/${match.assists}
-  //     </div>
-  //   </div>
-  // `
-
-  // heroList.appendChild(listItem)
+function heroKDA(user) {
+  
 }
