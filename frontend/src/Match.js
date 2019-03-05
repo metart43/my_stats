@@ -9,7 +9,7 @@ class Match {
   }
 
   // Renders data from each match
-  render(userData) {
+  render() {
     let listItem = document.createElement('li')
 
     listItem.innerHTML = `
@@ -25,7 +25,6 @@ class Match {
       </div>
     </div>
     `
-    this.renderUserHeroes(userData)
     return listItem
   }
 

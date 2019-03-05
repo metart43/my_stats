@@ -12,6 +12,14 @@ class User {
     userName.innerText = this.name
     return userName
   }
+
+  renderMatches(){
+    debugger
+    this.matches.forEach(match => {
+      let matchInstance = new Match(match)
+      document.querySelector(".user_container").appendChild(matchInstance.render())
+    })
+  }
 }
 
 User.all = []

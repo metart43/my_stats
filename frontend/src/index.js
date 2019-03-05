@@ -1,7 +1,9 @@
 document.addEventListener('DOMContentLoaded',() =>{
   fetchUserInfo()
 })
-
+function currentUserFunc(userData) {
+  return User.all.find(user => user.id === userData.id)
+}
 // Returns User URL
 function getUserUrl() {
   return 'http://localhost:3000/users/1'
@@ -14,9 +16,10 @@ function fetchUserInfo() {
     .then(userData => {
       let userInstance = new User(userData)
       document.querySelector('#user-name').appendChild(userInstance.render())
-      userData.matches.forEach(match => {
-        let matchInstance = new Match(match)
-        document.querySelector("#match-list").appendChild(matchInstance.render(userData))
-      })
+      navButtons(userData)
     })
+}
+
+function navButtons(user) {
+let matchBttn = document.querySelector('#side-button1-match').addEventListener('click', ()=>{currentUserFunc(user).renderMatches()})
 }

@@ -14,7 +14,7 @@ tmp/
 */tmp/cache/*
 !/log/.keep
 !/tmp/.keep
- backend/log/development.log
+backend/log/development.log
 backend/tmp/cache/bootsnap-load-path-cache
 backend/tmp/cache/*
 # Ignore uploaded files in development
