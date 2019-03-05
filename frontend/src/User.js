@@ -4,6 +4,7 @@ class User {
     this.name = user.name
     this.matches = user.matches
     this.teams = user.teams
+    this.heroes = []
     User.all.push(this)
   }
 
@@ -14,7 +15,6 @@ class User {
   }
 
   renderMatches(){
-    debugger
     this.matches.forEach(match => {
       let matchInstance = new Match(match)
       document.querySelector(".user_container").appendChild(matchInstance.render())
