@@ -2172,3 +2172,290 @@ Processing by UsersController#show as */*
 Completed 200 OK in 10ms (Views: 3.8ms | ActiveRecord: 5.1ms)
 
 
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mMatch Load (0.8ms)[0m  [1m[34mSELECT  "matches".* FROM "matches" WHERE "matches"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 11]]
+  [1m[36mMatch Load (1.4ms)[0m  [1m[34mSELECT "matches".* FROM "matches" WHERE "matches"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[36mHero Load (40.9ms)[0m  [1m[34mSELECT  "heros".* FROM "heros" WHERE "heros"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (41.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4569563466244943775)[0m
+  ↳ /Users/metelskyi/.rvm/gems/ruby-2.5.3/bin/rake:23
+  [1m[35m (41.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/metelskyi/.rvm/gems/ruby-2.5.3/bin/rake:23
+Migrating to CreateTeams (20190304222329)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/metelskyi/.rvm/gems/ruby-2.5.3/bin/rake:23
+  [1m[35m (82.0ms)[0m  [1m[35mCREATE TABLE "teams" ("id" bigserial primary key, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20190304222329_create_teams.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190304222329"]]
+  ↳ /Users/metelskyi/.rvm/gems/ruby-2.5.3/bin/rake:23
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/metelskyi/.rvm/gems/ruby-2.5.3/bin/rake:23
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /Users/metelskyi/.rvm/gems/ruby-2.5.3/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/metelskyi/.rvm/gems/ruby-2.5.3/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/metelskyi/.rvm/gems/ruby-2.5.3/bin/rake:23
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(4569563466244943775)[0m
+  ↳ /Users/metelskyi/.rvm/gems/ruby-2.5.3/bin/rake:23
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/metelskyi/.rvm/gems/ruby-2.5.3/bin/rake:23
+  [1m[36mTeam Load (0.9ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4569563466244943775)[0m
+  ↳ bin/rails:9
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to AddUserIdToTeams (20190304222718)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (46.5ms)[0m  [1m[35mALTER TABLE "products" ADD "user_id" bigint[0m
+  ↳ db/migrate/20190304222718_add_user_id_to_teams.rb:3
+  [1m[35m (1.9ms)[0m  [1m[31mROLLBACK[0m
+  ↳ bin/rails:9
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT pg_advisory_unlock(4569563466244943775)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4569563466244943775)[0m
+  ↳ bin/rails:9
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to AddUserIdToTeams (20190304222718)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (1.0ms)[0m  [1m[35mALTER TABLE "teams" ADD "user_id" bigint[0m
+  ↳ db/migrate/20190304222718_add_user_id_to_teams.rb:3
+  [1m[35m (2.7ms)[0m  [1m[35mCREATE  INDEX  "index_teams_on_user_id" ON "teams"  ("user_id")[0m
+  ↳ db/migrate/20190304222718_add_user_id_to_teams.rb:3
+  [1m[35m (48.1ms)[0m  [1m[35mALTER TABLE "teams" ADD CONSTRAINT "fk_rails_45096701b6"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  ↳ db/migrate/20190304222718_add_user_id_to_teams.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190304222718"]]
+  ↳ bin/rails:9
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(4569563466244943775)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTeam Create (4.3ms)[0m  [1m[32mINSERT INTO "teams" ("name", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Navi"], ["created_at", "2019-03-04 22:29:39.513837"], ["updated_at", "2019-03-04 22:29:39.513837"], ["user_id", 1]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/metelskyi/.rvm/gems/ruby-2.5.3/bin/rake:23
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/metelskyi/.rvm/gems/ruby-2.5.3/bin/rake:23
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/metelskyi/.rvm/gems/ruby-2.5.3/bin/rake:23
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/metelskyi/.rvm/gems/ruby-2.5.3/bin/rake:23
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4569563466244943775)[0m
+  ↳ /Users/metelskyi/.rvm/gems/ruby-2.5.3/bin/rake:23
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/metelskyi/.rvm/gems/ruby-2.5.3/bin/rake:23
+Migrating to AddUserIdToTeams (20190304222718)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/metelskyi/.rvm/gems/ruby-2.5.3/bin/rake:23
+  [1m[35m (19.6ms)[0m  [1m[35mALTER TABLE "teams" DROP CONSTRAINT "fk_rails_45096701b6"[0m
+  ↳ /Users/metelskyi/.rvm/gems/ruby-2.5.3/bin/rake:23
+  [1m[35m (1.9ms)[0m  [1m[35mALTER TABLE "teams" DROP COLUMN "user_id"[0m
+  ↳ /Users/metelskyi/.rvm/gems/ruby-2.5.3/bin/rake:23
+  [1m[36mActiveRecord::SchemaMigration Destroy (82.5ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20190304222718"]]
+  ↳ /Users/metelskyi/.rvm/gems/ruby-2.5.3/bin/rake:23
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/metelskyi/.rvm/gems/ruby-2.5.3/bin/rake:23
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(4569563466244943775)[0m
+  ↳ /Users/metelskyi/.rvm/gems/ruby-2.5.3/bin/rake:23
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/metelskyi/.rvm/gems/ruby-2.5.3/bin/rake:23
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/metelskyi/.rvm/gems/ruby-2.5.3/bin/rake:23
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/metelskyi/.rvm/gems/ruby-2.5.3/bin/rake:23
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/metelskyi/.rvm/gems/ruby-2.5.3/bin/rake:23
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4569563466244943775)[0m
+  ↳ /Users/metelskyi/.rvm/gems/ruby-2.5.3/bin/rake:23
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/metelskyi/.rvm/gems/ruby-2.5.3/bin/rake:23
+Migrating to CreateTeams (20190304222329)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/metelskyi/.rvm/gems/ruby-2.5.3/bin/rake:23
+  [1m[35m (45.6ms)[0m  [1m[35mDROP TABLE "teams"[0m
+  ↳ /Users/metelskyi/.rvm/gems/ruby-2.5.3/bin/rake:23
+  [1m[36mActiveRecord::SchemaMigration Destroy (0.7ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20190304222329"]]
+  ↳ /Users/metelskyi/.rvm/gems/ruby-2.5.3/bin/rake:23
+  [1m[35m (5.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/metelskyi/.rvm/gems/ruby-2.5.3/bin/rake:23
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT pg_advisory_unlock(4569563466244943775)[0m
+  ↳ /Users/metelskyi/.rvm/gems/ruby-2.5.3/bin/rake:23
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/metelskyi/.rvm/gems/ruby-2.5.3/bin/rake:23
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/metelskyi/.rvm/gems/ruby-2.5.3/bin/rake:23
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4569563466244943775)[0m
+  ↳ /Users/metelskyi/.rvm/gems/ruby-2.5.3/bin/rake:23
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/metelskyi/.rvm/gems/ruby-2.5.3/bin/rake:23
+Migrating to CreateTeams (20190304223939)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/metelskyi/.rvm/gems/ruby-2.5.3/bin/rake:23
+  [1m[35m (49.4ms)[0m  [1m[35mCREATE TABLE "teams" ("id" bigserial primary key, "name" character varying)[0m
+  ↳ db/migrate/20190304223939_create_teams.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190304223939"]]
+  ↳ /Users/metelskyi/.rvm/gems/ruby-2.5.3/bin/rake:23
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/metelskyi/.rvm/gems/ruby-2.5.3/bin/rake:23
+Migrating to AddUserRefToTeams (20190304224043)
+  [1m[35m (53.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/metelskyi/.rvm/gems/ruby-2.5.3/bin/rake:23
+  [1m[35m (3.7ms)[0m  [1m[35mALTER TABLE "teams" ADD "user_id" bigint[0m
+  ↳ db/migrate/20190304224043_add_user_ref_to_teams.rb:3
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE  INDEX  "index_teams_on_user_id" ON "teams"  ("user_id")[0m
+  ↳ db/migrate/20190304224043_add_user_ref_to_teams.rb:3
+  [1m[35m (2.7ms)[0m  [1m[35mALTER TABLE "teams" ADD CONSTRAINT "fk_rails_45096701b6"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  ↳ db/migrate/20190304224043_add_user_ref_to_teams.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190304224043"]]
+  ↳ /Users/metelskyi/.rvm/gems/ruby-2.5.3/bin/rake:23
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/metelskyi/.rvm/gems/ruby-2.5.3/bin/rake:23
+Migrating to CreateJoinTableUserTeam (20190304224209)
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/metelskyi/.rvm/gems/ruby-2.5.3/bin/rake:23
+  [1m[35m (4.6ms)[0m  [1m[35mCREATE TABLE "teams_users" ("user_id" bigint NOT NULL, "team_id" bigint NOT NULL)[0m
+  ↳ db/migrate/20190304224209_create_join_table_user_team.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190304224209"]]
+  ↳ /Users/metelskyi/.rvm/gems/ruby-2.5.3/bin/rake:23
+  [1m[35m (41.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/metelskyi/.rvm/gems/ruby-2.5.3/bin/rake:23
+  [1m[36mActiveRecord::InternalMetadata Load (2.0ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /Users/metelskyi/.rvm/gems/ruby-2.5.3/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/metelskyi/.rvm/gems/ruby-2.5.3/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/metelskyi/.rvm/gems/ruby-2.5.3/bin/rake:23
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(4569563466244943775)[0m
+  ↳ /Users/metelskyi/.rvm/gems/ruby-2.5.3/bin/rake:23
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/metelskyi/.rvm/gems/ruby-2.5.3/bin/rake:23
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/metelskyi/.rvm/gems/ruby-2.5.3/bin/rake:23
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/metelskyi/.rvm/gems/ruby-2.5.3/bin/rake:23
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/metelskyi/.rvm/gems/ruby-2.5.3/bin/rake:23
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4569563466244943775)[0m
+  ↳ /Users/metelskyi/.rvm/gems/ruby-2.5.3/bin/rake:23
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/metelskyi/.rvm/gems/ruby-2.5.3/bin/rake:23
+Migrating to CreateJoinTableUserTeam (20190304224209)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/metelskyi/.rvm/gems/ruby-2.5.3/bin/rake:23
+  [1m[35m (1.6ms)[0m  [1m[35mDROP TABLE "teams_users"[0m
+  ↳ /Users/metelskyi/.rvm/gems/ruby-2.5.3/bin/rake:23
+  [1m[36mActiveRecord::SchemaMigration Destroy (0.7ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20190304224209"]]
+  ↳ /Users/metelskyi/.rvm/gems/ruby-2.5.3/bin/rake:23
+  [1m[35m (40.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/metelskyi/.rvm/gems/ruby-2.5.3/bin/rake:23
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(4569563466244943775)[0m
+  ↳ /Users/metelskyi/.rvm/gems/ruby-2.5.3/bin/rake:23
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/metelskyi/.rvm/gems/ruby-2.5.3/bin/rake:23
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4569563466244943775)[0m
+  ↳ /Users/metelskyi/.rvm/gems/ruby-2.5.3/bin/rake:23
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/metelskyi/.rvm/gems/ruby-2.5.3/bin/rake:23
+Migrating to CreateUserTeams (20190304224724)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/metelskyi/.rvm/gems/ruby-2.5.3/bin/rake:23
+  [1m[35m (67.2ms)[0m  [1m[35mCREATE TABLE "user_teams" ("id" bigserial primary key, "user_id" bigint, "team_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_978858c8ea"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+, CONSTRAINT "fk_rails_64c25f3fe6"
+FOREIGN KEY ("team_id")
+  REFERENCES "teams" ("id")
+)[0m
+  ↳ db/migrate/20190304224724_create_user_teams.rb:3
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE  INDEX  "index_user_teams_on_user_id" ON "user_teams"  ("user_id")[0m
+  ↳ db/migrate/20190304224724_create_user_teams.rb:3
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE  INDEX  "index_user_teams_on_team_id" ON "user_teams"  ("team_id")[0m
+  ↳ db/migrate/20190304224724_create_user_teams.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190304224724"]]
+  ↳ /Users/metelskyi/.rvm/gems/ruby-2.5.3/bin/rake:23
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/metelskyi/.rvm/gems/ruby-2.5.3/bin/rake:23
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /Users/metelskyi/.rvm/gems/ruby-2.5.3/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/metelskyi/.rvm/gems/ruby-2.5.3/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/metelskyi/.rvm/gems/ruby-2.5.3/bin/rake:23
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(4569563466244943775)[0m
+  ↳ /Users/metelskyi/.rvm/gems/ruby-2.5.3/bin/rake:23
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/metelskyi/.rvm/gems/ruby-2.5.3/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTeam Create (6.1ms)[0m  [1m[32mINSERT INTO "teams" ("name") VALUES ($1) RETURNING "id"[0m  [["name", "Navi"]]
+  [1m[35m (40.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4569563466244943775)[0m
+  ↳ /Users/metelskyi/.rvm/gems/ruby-2.5.3/bin/rake:23
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/metelskyi/.rvm/gems/ruby-2.5.3/bin/rake:23
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /Users/metelskyi/.rvm/gems/ruby-2.5.3/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/metelskyi/.rvm/gems/ruby-2.5.3/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/metelskyi/.rvm/gems/ruby-2.5.3/bin/rake:23
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(4569563466244943775)[0m
+  ↳ /Users/metelskyi/.rvm/gems/ruby-2.5.3/bin/rake:23
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/metelskyi/.rvm/gems/ruby-2.5.3/bin/rake:23
+  [1m[36mTeam Load (0.7ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mTeam Load (1.7ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUserTeam Load (45.5ms)[0m  [1m[34mSELECT  "user_teams".* FROM "user_teams" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mUser Load (3.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUserTeam Create (11.3ms)[0m  [1m[32mINSERT INTO "user_teams" ("user_id", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 1], ["team_id", 1], ["created_at", "2019-03-04 22:55:07.423797"], ["updated_at", "2019-03-04 22:55:07.423797"]]
+  [1m[35m (32.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTeam Load (3.7ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" INNER JOIN "user_teams" ON "users"."id" = "user_teams"."user_id" WHERE "user_teams"."team_id" = $1 LIMIT $2[0m  [["team_id", 1], ["LIMIT", 11]]
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_teams" ON "users"."id" = "user_teams"."user_id" WHERE "user_teams"."team_id" = $1[0m  [["team_id", 1]]
+  [1m[36mTeam Load (1.1ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (2.7ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Ross"], ["created_at", "2019-03-04 22:57:41.642963"], ["updated_at", "2019-03-04 22:57:41.642963"]]
+  [1m[35m (3.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUserTeam Create (3.0ms)[0m  [1m[32mINSERT INTO "user_teams" ("user_id", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 2], ["team_id", 1], ["created_at", "2019-03-04 22:58:03.895213"], ["updated_at", "2019-03-04 22:58:03.895213"]]
+  [1m[35m (4.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUserTeam Load (0.5ms)[0m  [1m[34mSELECT  "user_teams".* FROM "user_teams" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mTeam Load (0.8ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mTeam Load (1.5ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUserTeam Create (2.0ms)[0m  [1m[32mINSERT INTO "user_teams" ("user_id", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 1], ["team_id", 1], ["created_at", "2019-03-04 23:05:02.189674"], ["updated_at", "2019-03-04 23:05:02.189674"]]
+  [1m[35m (40.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTeam Load (1.4ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" INNER JOIN "user_teams" ON "teams"."id" = "user_teams"."team_id" WHERE "user_teams"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 11]]
+  [1m[36mTeam Load (3.1ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" INNER JOIN "user_teams" ON "teams"."id" = "user_teams"."team_id" WHERE "user_teams"."user_id" = $1 LIMIT $2[0m  [["user_id", 2], ["LIMIT", 11]]
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTeam Create (2.8ms)[0m  [1m[32mINSERT INTO "teams" ("name") VALUES ($1) RETURNING "id"[0m  [["name", "Liquid"]]
+  [1m[35m (1.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUserTeam Create (1.3ms)[0m  [1m[32mINSERT INTO "user_teams" ("user_id", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 1], ["team_id", 2], ["created_at", "2019-03-04 23:06:47.108955"], ["updated_at", "2019-03-04 23:06:47.108955"]]
+  [1m[35m (8.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTeam Load (2.1ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" INNER JOIN "user_teams" ON "teams"."id" = "user_teams"."team_id" WHERE "user_teams"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 11]]
