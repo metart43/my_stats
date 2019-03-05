@@ -19,27 +19,25 @@ function fetchUserInfo() {
 // Renders the user from the JSON
 
 
-// Renders data from each match
-function renderMatch(match, matchList) {
-  let listItem = document.createElement('li')
 
+
+function renderHero(match, heroList) {
+  let listItem = document.createElement('li')
   listItem.innerHTML = `
-    <div class="match-card">
+    <div class="hero-card">
       <div class="hero-name">
         ${match.hero.name}
       </div>
       <div class="kda">
         K/D/A: ${match.kills}/${match.deaths}/${match.assists}
       </div>
-      <div class="result">
-        ${match.result? "Win" : "Loss"}
-      </div>
     </div>
   `
 
-  matchList.appendChild(listItem)
+  heroList.appendChild(listItem)
 }
 
+<<<<<<< HEAD
 function renderHero(match, heroList) {
   // let listItem = document.createElement('li')
   // listItem.innerHTML = `
@@ -59,3 +57,8 @@ function renderHero(match, heroList) {
 function functionName() {
 
 }
+=======
+function heroKDA(user) {
+  
+}
+>>>>>>> user-page

@@ -21,6 +21,9 @@ Hero.create([
 
 Match.create([
   {user: artem, hero_id: 1, kills: 10, deaths: 5, assists: 10, result: true},
+  {user: artem, hero_id: 1, kills: 5, deaths: 2, assists: 5, result: false},
+  {user: artem, hero_id: 3, kills: 3, deaths: 5, assists: 3, result: false},
+  {user: artem, hero_id: 4, kills: 1, deaths: 1, assists: 5, result: true},
   {user: ross, hero_id: 3, kills: 5, deaths: 2, assists: 1, result: true},
   {user: chine, hero_id: 4, kills: 1, deaths: 6, assists: 6, result: false},
   {user: ben, hero_id: 4, kills: 8, deaths: 7, assists: 5, result: true}
