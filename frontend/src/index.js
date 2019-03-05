@@ -1,9 +1,11 @@
 document.addEventListener('DOMContentLoaded',() =>{
   fetchUserInfo()
 })
+
 function currentUserFunc(userData) {
   return User.all.find(user => user.id === userData.id)
 }
+
 // Returns User URL
 function getUserUrl() {
   return 'http://localhost:3000/users/1'

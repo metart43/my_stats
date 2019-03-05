@@ -1,5 +1,5 @@
 .user_container{
-  borde
+  
 }
 
 .side_menu_container{
@@ -12,5 +12,9 @@
 }
 
 #side-button1-team{
+  padding-top: 10px;
+}
+
+#side-button1-hero{
   padding-top: 10px;
 }
