@@ -1,7 +1,10 @@
 class Team {
-  constructor() {
-
+  constructor(team) {
+    this.name = team.name
+    this.users = team.users
+}
   render(){
+    debugger
     let teamCard = document.createElement('div')
     let userContainer = document.querySelector('.display-container')
     let formContainer = document.querySelector('.container')
