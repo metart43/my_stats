@@ -12,6 +12,7 @@ class Match {
     this.addUserHero()
   }
 
+  // Formats the date
   formatDate(date){
     let newD = new Date(date)
     return `${newD.toLocaleTimeString()} ${newD.toLocaleDateString()}`

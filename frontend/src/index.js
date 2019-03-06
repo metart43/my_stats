@@ -1,5 +1,10 @@
 document.addEventListener('DOMContentLoaded',() =>{
-  fetchUserInfo()
+  document.querySelector('#show-user').addEventListener('click', () => {
+    event.preventDefault()
+    let searchUser = document.querySelector('#search-user').value
+    getUserUrl(searchUser)
+    fetchUserInfo(searchUser)
+  })
 })
 
 function currentUserFunc(userData) {
@@ -8,12 +13,13 @@ function currentUserFunc(userData) {
 
 // Returns User URL
 function getUserUrl() {
-  return 'http://localhost:3000/users/1'
+  return 'http://localhost:3000/users/'
 }
 
 // Grab user from API
-function fetchUserInfo() {
-  fetch(getUserUrl())
+function fetchUserInfo(searchUser) {
+
+  fetch(getUserUrl() + searchUser)
     .then(resp => resp.json())
     .then(userData => {
       let userInstance = new User(userData)
