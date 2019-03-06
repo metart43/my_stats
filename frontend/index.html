@@ -5,8 +5,8 @@
     <title>Stats App</title>
     <script src="src/index.js" charset="utf-8"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="style/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   </head>
   <body>
     <nav class="navbar sticky-top navbar-dark bg-dark">
@@ -16,27 +16,27 @@
     <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="show-user">Enter<i class="fas fa-user-ninja"></i></button>
   </form>
 </nav>
-<div class="side_menu_container">
+<div class="side_menu_container container">
   <div class="row">
-    <div class="col-3">
+    <div class="col-1.5">
           <div class="sidebar">
-            <div id="side-button1-new-team" class="side-button">
-             <button class="btn btn-outline-dark my-2 my-sm-0" role="button">New Team</button>
-           </div>
-           <div id="side-button1-team" class="side-button">
-            <button class="btn btn-outline-dark my-2 my-sm-0" role="button">Teams</button>
-          </div>
-          <div id="side-button1-match" class="side-button">
-           <button class="btn btn-outline-dark my-2 my-sm-0" role="button">Matches</button>
-         </div>
-         <div id="side-button1-hero" class="side-button">
-          <button class="btn btn-outline-dark my-2 my-sm-0" role="button" >Heroes</button>
-        </div>
+            <div  class="side-button">
+              <button id="side-button1-match" class="btn btn-outline-dark mb-2 btn-block" role="button">Matches</button>
+            </div>
+            <div class="side-button">
+              <button id="side-button1-hero" class="btn btn-outline-dark btn-block mb-2" role="button">Heroes</button>
+            </div>
+            <div class="side-button">
+              <button id="side-button1-team" class="btn btn-outline-dark mb-2 btn-block" role="button">Teams</button>
+            </div>
+            <div class="side-button">
+              <button id="side-button1-new-team" class="btn btn-outline-dark btn-block" role="button">New Team</button>
+            </div>
         </div>
       </div>
-      <div class="user_container col-5">
+      <div class="user_container col-9">
         <div class="row" id="user-info">
-          <h2 class="col-5" id="user-name">
+          <h2 class="col-4" id="user-name">
           </h2>
         </div>
         <div class="display-container">

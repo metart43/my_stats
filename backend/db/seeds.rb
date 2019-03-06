@@ -173,10 +173,10 @@ heroes.each {|hero| Hero.create(hero)}
 
 resultRand = [true, false]
 
-allUsers.each do |user| 
-  20.times do |i| 
+allUsers.each do |user|
+  30.times do |i|
     match = Match.create({
-    user: user, 
+    user: user,
     hero_id: Faker::Number.between(1, heroes.length),
     kills: Faker::Number.between(0, 20),
     deaths: Faker::Number.between(0, 20),
@@ -190,9 +190,18 @@ allUsers.each do |user|
   end
 end
 
-navi = Team.create(name: "Na'Vi")
-liquid = Team.create(name: 'Liquid')
+# navi = Team.create(name: "Na'Vi")
+# liquid = Team.create(name: 'Liquid')
 
+teams = 10.times do |i|
+  teamInstance = Team.create(name: Faker::Games::Dota.team)
 
-navi.users << [allUsers[0], allUsers[1], allUsers[2], allUsers[3]]
-liquid.users << [allUsers[4], allUsers[2], allUsers[5]]
+  while teamInstance.users.length < 5 do
+    randUser = allUsers[Faker::Number.between(0, allUsers.length-1)]
+    if !teamInstance.users.include? randUser
+      teamInstance.users << randUser
+    end
+  end
+end
+# navi.users << [allUsers[0], allUsers[1], allUsers[2], allUsers[3], allUsers[5]]
+# liquid.users << [allUsers[4], allUsers[2], allUsers[5], allUsers[1], allUsers[1]]

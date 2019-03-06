@@ -24,17 +24,18 @@ function getUserUrl() {
 // Grab user from API
 function fetchUserInfo(userName) {
   fetch(getUserUrl() + userName)
-    .then(resp => resp.json())
-    .then(userData => {
+  .then(resp => resp.json())
+  .then(userData => {
       let isUser = currentUserFunc(userData)
       if (!isUser) {
         isUser = new User(userData)
       }
       isUser.render()
       navButtons(userData)
+      document.querySelector('.navbar-brand').addEventListener('click', () => isUser.render())
     })
     .catch(error => User.createUserForm(userName))
-}
+  }
 //Creates Side Menude Buttons
 function navButtons(user) {
   document.querySelector('#side-button1-match').addEventListener('click', ()=>{
