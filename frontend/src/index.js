@@ -35,12 +35,20 @@ function teamFormCreate(user) {
   <br>
   <form id='teamName'>
   <input class="form-control form-control-sm" id="team-name" type="text" placeholder="Team Name">
-  <input class="button" id='team-create-button' type="submit">
+  <br>
+  <input class="btn btn-outline-dark btn-sm" id='team-create-button' type="submit">
   </form>
 </div>`
   document.querySelector('.user_container').append(formHeader,teamForm)
   let createTeamBttn = document.querySelector('#teamName').addEventListener('submit', () => {
     event.preventDefault()
+    let teamMateBttn = document.createElement('button')
+    teamMateBttn.innerText = "Add TeamMates"
+    teamMateBttn.id = 'button-mate'
+    teamMateBttn.className = 'btn btn-outline-dark btn-sm'
+    teamMateBttn.disable = false
+    teamCard.appendChild(teamInstance.render())
+    userContainer.append(teamCard, teamMateBttn)
     let teamName = document.querySelector('#team-name').value
     createTeam(teamName, user)
   })
@@ -54,17 +62,26 @@ fetch('http://localhost:3000/teams',{
       user_ids: [user.id]})
 })
 .then(resp => resp.json())
-.then(teamData => console.log(teamData))
+.then(teamData => {
+  let teamInstance = new Team (teamData)
+  document.querySelector('#button-mate').addEventListener('click', () =>{
+    fetchUsers(teamData, currentUser, teamMateBttn)
+  })
+  formContainer.style.display = 'none'
+})
 }
 
-function fetchUsers() {
+//Fetch call to create find a user
+function fetchUsers(teamData, currentUser, teamMateBttn) {
+    teamMateBttn.disabled = true
   let teamMatesSelect = document.createElement('div')
   teamMatesSelect.innerHTML += `<div class="container">
   <br>
   <form id='teamMate'>
-  <h3>Pick a Team Mate:</h3>
+  <h5>Pick A Mate:</h5>
   <input class="form-control form-control-sm" id="myInput" type="text" placeholder="Search..">
-  <input class="button" type="submit">
+  <br>
+  <input class="btn btn-outline-dark btn-sm" type="submit">
   </form>
 </div>`
 document.querySelector('.user_container').append(teamMatesSelect)
@@ -84,4 +101,17 @@ document.querySelector('#teamMate').addEventListener('submit', () =>{
     }
   })
 })
+}
+
+function updateTeam(foundUser, teamData, currentUser) {
+  debugger
+  fetch(`http://localhost:3000/teams/${teamData.id}`,{
+        method:"PATCH",
+      	headers: {"Content-Type": "application/json"},
+      	body: JSON.stringify( {name: teamData.name,
+        user_ids: [foundUser.id, currentUser.id]})
+  })
+  .then(resp => resp.json())
+  .then(updatedTeam => {
+  })
 }

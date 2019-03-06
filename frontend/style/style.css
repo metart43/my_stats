@@ -1,5 +1,5 @@
 .user_container{
-  
+
 }
 
 .side_menu_container{
@@ -17,4 +17,9 @@
 
 #side-button1-hero{
   padding-top: 10px;
+}
+
+.container{
+    padding-top: 25px;
+    padding-left: 100px;
 }
