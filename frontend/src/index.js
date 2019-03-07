@@ -13,7 +13,6 @@ function currentUserFunc(userData) {
   return User.all.find(user => user.id === userData.id)
 }
 function currentTeam(teamData) {
-  debugger
   return Team.all.find(team => team.name === teamData.name)
 }
 // Returns User URL
@@ -37,8 +36,15 @@ function fetchUserInfo(userName) {
 }
 //Creates Side Menude Buttons
 function navButtons(user) {
-let matchBttn = document.querySelector('#side-button1-match').addEventListener('click', ()=>{currentUserFunc(user).renderMatches()})
-let teamCreateBttn = document.querySelector('#side-button1-new-team').addEventListener('click', ()=>{teamFormCreate(currentUserFunc(user))})
+  document.querySelector('#side-button1-match').addEventListener('click', ()=>{
+    currentUserFunc(user).renderMatches()
+  })
+  document.querySelector('#side-button1-new-team').addEventListener('click', ()=>{
+    teamFormCreate(currentUserFunc(user))
+  })
+  document.querySelector('#side-button1-hero').addEventListener('click', () => {
+    currentUserFunc(user).renderHeroes()
+  })
 }
 
 //creates a Team Form
