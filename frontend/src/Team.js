@@ -2,6 +2,7 @@ class Team {
   constructor(team) {
     this.name = team.name
     this.users = team.users
+    Team.all.push(this)
 }
   render(){
     let displayContainer = document.querySelector('.display-container')
@@ -20,6 +21,7 @@ class Team {
     let teamMateBttn = document.createElement('button')
     teamMateBttn.innerText = "Add TeamMates"
     teamMateBttn.id = 'button-mate'
+    teamMateBttn.className = 'btn-sm btn-outline-dark my-2 my-sm-0'
     displayContainer.appendChild(teamCard)
     displayContainer.append(teamMateBttn)
   }

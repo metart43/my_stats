@@ -5,7 +5,10 @@ document.addEventListener('DOMContentLoaded',() =>{
 function currentUserFunc(userData) {
   return User.all.find(user => user.id === userData.id)
 }
-
+function currentTeam(teamData) {
+  debugger
+  return Team.all.find(team => team.name === teamData.name)
+}
 // Returns User URL
 function getUserUrl() {
   return 'http://localhost:3000/users/1'
@@ -37,7 +40,8 @@ function teamFormCreate(currentUser) {
   <br>
   <form id='teamName'>
   <input class="form-control form-control-sm" id="team-name" type="text" placeholder="Team Name">
-  <input class="button" id='team-create-button' type="submit">
+  <br>
+  <input class="btn-sm btn-outline-dark my-2 my-sm-0" id='team-create-button' type="submit">
   </form>
 </div>`
   displayContainer.appendChild(teamForm)
@@ -65,7 +69,6 @@ fetch('http://localhost:3000/teams',{
 }
 
 function addTeamMateFuncEvent(teamData, currentUser) {
-  debugger
   document.querySelector('#button-mate').addEventListener('click', () =>{
     fetchUsers(teamData, currentUser)
   })
@@ -73,22 +76,29 @@ function addTeamMateFuncEvent(teamData, currentUser) {
 
 //Fetch call to create find a user
 function fetchUsers(teamData, currentUser) {
-  debugger
+  let userContainer = document.querySelector('.user_container')
   let teamMatesSelect = document.createElement('div')
+  teamMatesSelect.id = 'teamMateForm'
   teamMatesSelect.innerHTML += `<div class="container">
   <br>
   <form id='teamMate'>
   <h3>Pick a Team Mate:</h3>
   <input class="form-control form-control-sm" id="myInput" type="text" placeholder="Search..">
-  <input class="button" type="submit">
+  <br>
+  <input class="btn-sm btn-outline-dark my-2 my-sm-0" type="submit">
   </form>
 </div>`
   teamMatesSelect.style.display = 'block'
-  document.querySelector('.user_container').append(teamMatesSelect)
-  document.querySelector('#teamMate').addEventListener('submit', () =>{
+  userContainer.append(teamMatesSelect)
+  findATeamMateEvent(teamData, currentUser, teamMatesSelect)
+}
+
+function findATeamMateEvent(teamData, currentUser, teamMatesSelect) {
+  teamMatesSelect.addEventListener('submit', () =>{
   event.preventDefault()
   teamMatesSelect.style.display = 'none'
   let search = document.querySelector('#myInput').value
+  document.querySelector('#teamMateForm').remove()
   fetch('http://localhost:3000/users')
   .then(resp => resp.json())
   .then(users => {
@@ -97,6 +107,7 @@ function fetchUsers(teamData, currentUser) {
         alert("User cannot be found!")
         return
     } else {
+      // debugger
        updateTeam(foundUser, teamData, currentUser)
     }
   })
@@ -104,16 +115,17 @@ function fetchUsers(teamData, currentUser) {
 }
 
 function updateTeam(foundUser, teamData, currentUser) {
-  debugger
+  let teamInstance = currentTeam(teamData)
+  teamInstance.users.push(foundUser)
+  let userIDs = teamInstance.users.map(user => user.id)
   fetch(`http://localhost:3000/teams/${teamData.id}`,{
         method:"PATCH",
       	headers: {"Content-Type": "application/json"},
       	body: JSON.stringify( {name: teamData.name,
-        user_ids: [foundUser.id, currentUser.id]})
+        user_ids: [...userIDs]})
   })
   .then(resp => resp.json())
   .then(updatedTeamData => {
-    let teamInstance = new Team (updatedTeamData)
     teamInstance.render()
     addTeamMateFuncEvent(teamData, currentUser)
   })
