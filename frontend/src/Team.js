@@ -5,20 +5,20 @@ class Team {
 }
   render(){
     debugger
+    let displayContainer = document.querySelector('.display-container')
+    displayContainer.innerHTML = ''
     let teamCard = document.createElement('div')
-    let userContainer = document.querySelector('.display-container')
-    let formContainer = document.querySelector('.container')
     let teamName = document.createElement('h4')
     teamName.innerText = `Team: ${this.name}`
     let teamMateList = document.createElement('ul')
+    teamMateList.innerText = 'Players:'
     this.users.forEach(user => {
       let teamMateEl = document.createElement('li')
       teamMateEl.innerText = `${user.name}`
       teamMateList.append(teamMateEl)
     })
-    let displayContainer = document.querySelector('.display-container')
-    displayContainer.appendChild(teamMateList)
-    return teamName
+    teamCard.append(teamName, teamMateList)
+    displayContainer.appendChild(teamCard)
   }
 }
 

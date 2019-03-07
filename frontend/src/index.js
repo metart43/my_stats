@@ -59,14 +59,14 @@ fetch('http://localhost:3000/teams',{
 .then(resp => resp.json())
 .then(teamData => {
   let teamInstance = new Team (teamData)
-  let teamCard = document.createElement('div')
   let userContainer = document.querySelector('.display-container')
   let formContainer = document.querySelector('.container')
   let teamMateBttn = document.createElement('button')
   teamMateBttn.innerText = "Add TeamMates"
   teamMateBttn.id = 'button-mate'
-  teamCard.appendChild(teamInstance.render())
-  userContainer.append(teamCard, teamMateBttn)
+  teamInstance.render()
+  userContainer.append(teamMateBttn)
+  debugger
   document.querySelector('#button-mate').addEventListener('click', () =>{
     fetchUsers(teamData, currentUser)
   })
@@ -104,11 +104,15 @@ document.querySelector('#teamMate').addEventListener('submit', () =>{
 }
 
 function updateTeam(foundUser, teamData, currentUser) {
-  debugger
   fetch(`http://localhost:3000/teams/${teamData.id}`,{
         method:"PATCH",
       	headers: {"Content-Type": "application/json"},
       	body: JSON.stringify( {name: teamData.name,
         user_ids: [foundUser.id, currentUser.id]})
+  })
+  .then(resp => resp.json())
+  .then(updatedTeamData => {
+    let teamInstance = new Team (updatedTeamData)
+    teamInstance.render()
   })
 }

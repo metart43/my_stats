@@ -12131,3 +12131,171 @@ Completed 200 OK in 60ms (Views: 32.3ms | ActiveRecord: 24.6ms)
   ↳ db/seeds.rb:37
   [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
   ↳ db/seeds.rb:37
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/metelskyi/.rvm/gems/ruby-2.5.3/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:4
+  [1m[35m (42.9ms)[0m  [1m[35mALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "heros" DISABLE TRIGGER ALL;ALTER TABLE "matches" DISABLE TRIGGER ALL;ALTER TABLE "teams" DISABLE TRIGGER ALL;ALTER TABLE "user_teams" DISABLE TRIGGER ALL[0m
+  ↳ db/seeds.rb:4
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:4
+  [1m[35m (5.6ms)[0m  [1m[34m          SELECT schemaname || '.' || tablename
+          FROM pg_tables
+          WHERE
+            tablename !~ '_prt_' AND
+             tablename <> 'schema_migrations'  AND tablename <> 'ar_internal_metadata'  AND
+            schemaname = ANY (current_schemas(false))
+[0m
+  ↳ db/seeds.rb:4
+  [1m[35m (3.1ms)[0m  [1m[34mselect table_name from information_schema.views where table_schema = 'my_stats_development'[0m
+  ↳ db/seeds.rb:4
+  [1m[35m (24.9ms)[0m  [1m[35mTRUNCATE TABLE "public"."users", "public"."heros", "public"."matches", "public"."teams", "public"."user_teams" RESTART IDENTITY CASCADE;[0m
+  ↳ db/seeds.rb:4
+  [1m[35m (1.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:4
+  [1m[35m (1.1ms)[0m  [1m[35mALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "heros" ENABLE TRIGGER ALL;ALTER TABLE "matches" ENABLE TRIGGER ALL;ALTER TABLE "teams" ENABLE TRIGGER ALL;ALTER TABLE "user_teams" ENABLE TRIGGER ALL[0m
+  ↳ db/seeds.rb:4
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:4
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mUser Create (0.9ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Artem"], ["created_at", "2019-03-07 14:11:40.853926"], ["updated_at", "2019-03-07 14:11:40.853926"]]
+  ↳ db/seeds.rb:9
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Ross"], ["created_at", "2019-03-07 14:11:40.859012"], ["updated_at", "2019-03-07 14:11:40.859012"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:11
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Ben"], ["created_at", "2019-03-07 14:11:40.862309"], ["updated_at", "2019-03-07 14:11:40.862309"]]
+  ↳ db/seeds.rb:11
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:12
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Chine"], ["created_at", "2019-03-07 14:11:40.865471"], ["updated_at", "2019-03-07 14:11:40.865471"]]
+  ↳ db/seeds.rb:12
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:12
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Matthew"], ["created_at", "2019-03-07 14:11:40.868456"], ["updated_at", "2019-03-07 14:11:40.868456"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:15
+  [1m[36mHero Create (1.0ms)[0m  [1m[32mINSERT INTO "heros" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Earthshaker"], ["created_at", "2019-03-07 14:11:40.886456"], ["updated_at", "2019-03-07 14:11:40.886456"]]
+  ↳ db/seeds.rb:15
+  [1m[35m (208.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:15
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:15
+  [1m[36mHero Create (0.6ms)[0m  [1m[32mINSERT INTO "heros" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Enchantress"], ["created_at", "2019-03-07 14:11:41.100078"], ["updated_at", "2019-03-07 14:11:41.100078"]]
+  ↳ db/seeds.rb:15
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:15
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:15
+  [1m[36mHero Create (0.5ms)[0m  [1m[32mINSERT INTO "heros" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Drow Ranger"], ["created_at", "2019-03-07 14:11:41.103721"], ["updated_at", "2019-03-07 14:11:41.103721"]]
+  ↳ db/seeds.rb:15
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:15
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:15
+  [1m[36mHero Create (0.4ms)[0m  [1m[32mINSERT INTO "heros" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Templar Assassin"], ["created_at", "2019-03-07 14:11:41.107878"], ["updated_at", "2019-03-07 14:11:41.107878"]]
+  ↳ db/seeds.rb:15
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:15
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:22
+  [1m[36mHero Load (0.4ms)[0m  [1m[34mSELECT  "heros".* FROM "heros" WHERE "heros"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:22
+  [1m[36mMatch Create (1.1ms)[0m  [1m[32mINSERT INTO "matches" ("user_id", "hero_id", "created_at", "updated_at", "kills", "deaths", "assists", "result") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["user_id", 1], ["hero_id", 1], ["created_at", "2019-03-07 14:11:41.154389"], ["updated_at", "2019-03-07 14:11:41.154389"], ["kills", 10], ["deaths", 5], ["assists", 10], ["result", true]]
+  ↳ db/seeds.rb:22
+  [1m[35m (39.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:22
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:22
+  [1m[36mHero Load (0.4ms)[0m  [1m[34mSELECT  "heros".* FROM "heros" WHERE "heros"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:22
+  [1m[36mMatch Create (0.5ms)[0m  [1m[32mINSERT INTO "matches" ("user_id", "hero_id", "created_at", "updated_at", "kills", "deaths", "assists", "result") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["user_id", 1], ["hero_id", 1], ["created_at", "2019-03-07 14:11:41.200884"], ["updated_at", "2019-03-07 14:11:41.200884"], ["kills", 5], ["deaths", 2], ["assists", 5], ["result", false]]
+  ↳ db/seeds.rb:22
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:22
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:22
+  [1m[36mHero Load (0.4ms)[0m  [1m[34mSELECT  "heros".* FROM "heros" WHERE "heros"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ db/seeds.rb:22
+  [1m[36mMatch Create (0.5ms)[0m  [1m[32mINSERT INTO "matches" ("user_id", "hero_id", "created_at", "updated_at", "kills", "deaths", "assists", "result") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["user_id", 1], ["hero_id", 3], ["created_at", "2019-03-07 14:11:41.207916"], ["updated_at", "2019-03-07 14:11:41.207916"], ["kills", 3], ["deaths", 5], ["assists", 3], ["result", false]]
+  ↳ db/seeds.rb:22
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:22
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:22
+  [1m[36mHero Load (0.4ms)[0m  [1m[34mSELECT  "heros".* FROM "heros" WHERE "heros"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ db/seeds.rb:22
+  [1m[36mMatch Create (0.6ms)[0m  [1m[32mINSERT INTO "matches" ("user_id", "hero_id", "created_at", "updated_at", "kills", "deaths", "assists", "result") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["user_id", 1], ["hero_id", 4], ["created_at", "2019-03-07 14:11:41.214240"], ["updated_at", "2019-03-07 14:11:41.214240"], ["kills", 1], ["deaths", 1], ["assists", 5], ["result", true]]
+  ↳ db/seeds.rb:22
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:22
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:22
+  [1m[36mHero Load (0.5ms)[0m  [1m[34mSELECT  "heros".* FROM "heros" WHERE "heros"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ db/seeds.rb:22
+  [1m[36mMatch Create (0.4ms)[0m  [1m[32mINSERT INTO "matches" ("user_id", "hero_id", "created_at", "updated_at", "kills", "deaths", "assists", "result") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["user_id", 2], ["hero_id", 3], ["created_at", "2019-03-07 14:11:41.220730"], ["updated_at", "2019-03-07 14:11:41.220730"], ["kills", 5], ["deaths", 2], ["assists", 1], ["result", true]]
+  ↳ db/seeds.rb:22
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:22
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:22
+  [1m[36mHero Load (0.3ms)[0m  [1m[34mSELECT  "heros".* FROM "heros" WHERE "heros"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ db/seeds.rb:22
+  [1m[36mMatch Create (0.5ms)[0m  [1m[32mINSERT INTO "matches" ("user_id", "hero_id", "created_at", "updated_at", "kills", "deaths", "assists", "result") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["user_id", 4], ["hero_id", 4], ["created_at", "2019-03-07 14:11:41.226154"], ["updated_at", "2019-03-07 14:11:41.226154"], ["kills", 1], ["deaths", 6], ["assists", 6], ["result", false]]
+  ↳ db/seeds.rb:22
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:22
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:22
+  [1m[36mHero Load (0.2ms)[0m  [1m[34mSELECT  "heros".* FROM "heros" WHERE "heros"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ db/seeds.rb:22
+  [1m[36mMatch Create (0.4ms)[0m  [1m[32mINSERT INTO "matches" ("user_id", "hero_id", "created_at", "updated_at", "kills", "deaths", "assists", "result") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["user_id", 3], ["hero_id", 4], ["created_at", "2019-03-07 14:11:41.231421"], ["updated_at", "2019-03-07 14:11:41.231421"], ["kills", 8], ["deaths", 7], ["assists", 5], ["result", true]]
+  ↳ db/seeds.rb:22
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:22
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:32
+  [1m[36mTeam Create (1.4ms)[0m  [1m[32mINSERT INTO "teams" ("name") VALUES ($1) RETURNING "id"[0m  [["name", "Na'Vi"]]
+  ↳ db/seeds.rb:32
+  [1m[35m (39.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:32
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:33
+  [1m[36mTeam Create (0.4ms)[0m  [1m[32mINSERT INTO "teams" ("name") VALUES ($1) RETURNING "id"[0m  [["name", "Liquid"]]
+  ↳ db/seeds.rb:33
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:33
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:36
+  [1m[36mUserTeam Create (3.3ms)[0m  [1m[32mINSERT INTO "user_teams" ("user_id", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 1], ["team_id", 1], ["created_at", "2019-03-07 14:11:41.337344"], ["updated_at", "2019-03-07 14:11:41.337344"]]
+  ↳ db/seeds.rb:36
+  [1m[36mUserTeam Create (0.9ms)[0m  [1m[32mINSERT INTO "user_teams" ("user_id", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 2], ["team_id", 1], ["created_at", "2019-03-07 14:11:41.343297"], ["updated_at", "2019-03-07 14:11:41.343297"]]
+  ↳ db/seeds.rb:36
+  [1m[36mUserTeam Create (0.7ms)[0m  [1m[32mINSERT INTO "user_teams" ("user_id", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 4], ["team_id", 1], ["created_at", "2019-03-07 14:11:41.346846"], ["updated_at", "2019-03-07 14:11:41.346846"]]
+  ↳ db/seeds.rb:36
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:36
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:37
+  [1m[36mUserTeam Create (0.8ms)[0m  [1m[32mINSERT INTO "user_teams" ("user_id", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 5], ["team_id", 2], ["created_at", "2019-03-07 14:11:41.352792"], ["updated_at", "2019-03-07 14:11:41.352792"]]
+  ↳ db/seeds.rb:37
+  [1m[36mUserTeam Create (0.7ms)[0m  [1m[32mINSERT INTO "user_teams" ("user_id", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 4], ["team_id", 2], ["created_at", "2019-03-07 14:11:41.355547"], ["updated_at", "2019-03-07 14:11:41.355547"]]
+  ↳ db/seeds.rb:37
+  [1m[36mUserTeam Create (0.9ms)[0m  [1m[32mINSERT INTO "user_teams" ("user_id", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 3], ["team_id", 2], ["created_at", "2019-03-07 14:11:41.358471"], ["updated_at", "2019-03-07 14:11:41.358471"]]
+  ↳ db/seeds.rb:37
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:37
