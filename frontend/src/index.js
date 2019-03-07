@@ -45,6 +45,9 @@ function navButtons(user) {
   document.querySelector('#side-button1-hero').addEventListener('click', () => {
     currentUserFunc(user).renderHeroes()
   })
+  document.querySelector('#side-button1-team').addEventListener('click', () => {
+    currentUserFunc(user).renderTeams()
+  })
 }
 
 //creates a Team Form
@@ -80,6 +83,7 @@ fetch('http://localhost:3000/teams',{
 .then(resp => resp.json())
 .then(teamData => {
   let teamInstance = new Team (teamData)
+  currentUser.teams.push(teamInstance)
   teamInstance.render()
   addTeamMateFuncEvent(teamData, currentUser)
 })

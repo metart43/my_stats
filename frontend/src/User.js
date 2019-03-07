@@ -7,13 +7,14 @@ class User {
     this.heroes = []
     User.all.push(this)
     this.matches.forEach(match => new Match(match))
+    this.teams.forEach(team => new Team(team))
   }
 
   render() {
     document.querySelector('.display-container').innerHTML = ''
     document.querySelector('#user-name').innerText = this.name
   }
-  
+
   renderMatches(){
     let dispContainer = document.querySelector(".display-container")
     dispContainer.innerHTML = ''
@@ -39,7 +40,7 @@ class User {
     matchTable.appendChild(tableBody)
     dispContainer.appendChild(matchTable)
   }
-  
+
   renderHeroes(){
     let dispContainer = document.querySelector(".display-container")
     dispContainer.innerHTML = ''
@@ -71,21 +72,21 @@ class User {
     heroTable.appendChild(tableBody)
     dispContainer.appendChild(heroTable)
   }
-  
+
   static createUserForm(userName) {
     let dispContainer = document.querySelector('.display-container')
     dispContainer.innerHTML = ''
     document.querySelector('#user-name').innerText = ''
-    
+
     let noUser = document.createElement('h5')
     noUser.classList = 'no-user-alert'
     noUser.innerText = `There is no user with the display name ${userName}. Check capitilization, it counts!`
-    
+
     let newUserDiv = document.createElement('div')
-    
+
     let newUser = document.createElement('h3')
     newUser.innerText = 'Create new user?'
-    
+
     let newBtn = document.createElement('button')
     newBtn.classList = 'btn btn-outline-dark my-2 my-sm-0'
     newBtn.id = 'new-user'
@@ -95,7 +96,7 @@ class User {
       newUserDiv.append(newUser)
       User.getUserNameForm(newUserDiv)
     })
-    
+
     newUserDiv.append(newUser, newBtn)
     dispContainer.append(noUser, newUserDiv)
   }
@@ -134,6 +135,38 @@ class User {
       let userInstance = new User(user)
       userInstance.render()
     })
+  }
+
+  renderTeams(){
+    debugger
+    let dispContainer = document.querySelector(".display-container")
+    dispContainer.innerHTML = ''
+    let teamTable = document.createElement('table')
+    teamTable.className = 'table'
+    teamTable.innerHTML = `
+    <thead>
+    <tr>
+    <th scope="col">Team Name</th>
+    <th scope="col">Team Players</th>
+    </tr>
+    </thead>
+    `
+    let tableBody = document.createElement('tbody')
+    this.teams.forEach(team => {
+      debugger
+      let teamRow = document.createElement('tr')
+      let teamNameHeader = document.createElement('th')
+      teamNameHeader.innerText = `${team.name}`
+      teamRow.append(teamNameHeader)
+      team.users.forEach(user => {
+        let teamPlayersRow = document.createElement('td')
+        teamPlayersRow.innerText = `${user.name}`
+        teamRow.append(teamPlayersRow)
+      })
+      tableBody.append(teamRow)
+    })
+    teamTable.append(tableBody)
+    dispContainer.append(teamTable)
   }
 }
 
