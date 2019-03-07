@@ -59,23 +59,21 @@ fetch('http://localhost:3000/teams',{
 .then(resp => resp.json())
 .then(teamData => {
   let teamInstance = new Team (teamData)
-  let userContainer = document.querySelector('.display-container')
-  let formContainer = document.querySelector('.container')
-  let teamMateBttn = document.createElement('button')
-  teamMateBttn.innerText = "Add TeamMates"
-  teamMateBttn.id = 'button-mate'
   teamInstance.render()
-  userContainer.append(teamMateBttn)
+  addTeamMateFuncEvent(teamData, currentUser)
+})
+}
+
+function addTeamMateFuncEvent(teamData, currentUser) {
   debugger
   document.querySelector('#button-mate').addEventListener('click', () =>{
     fetchUsers(teamData, currentUser)
   })
-  formContainer.style.display = 'none'
-})
 }
 
 //Fetch call to create find a user
 function fetchUsers(teamData, currentUser) {
+  debugger
   let teamMatesSelect = document.createElement('div')
   teamMatesSelect.innerHTML += `<div class="container">
   <br>
@@ -85,9 +83,11 @@ function fetchUsers(teamData, currentUser) {
   <input class="button" type="submit">
   </form>
 </div>`
-document.querySelector('.user_container').append(teamMatesSelect)
-document.querySelector('#teamMate').addEventListener('submit', () =>{
+  teamMatesSelect.style.display = 'block'
+  document.querySelector('.user_container').append(teamMatesSelect)
+  document.querySelector('#teamMate').addEventListener('submit', () =>{
   event.preventDefault()
+  teamMatesSelect.style.display = 'none'
   let search = document.querySelector('#myInput').value
   fetch('http://localhost:3000/users')
   .then(resp => resp.json())
@@ -104,6 +104,7 @@ document.querySelector('#teamMate').addEventListener('submit', () =>{
 }
 
 function updateTeam(foundUser, teamData, currentUser) {
+  debugger
   fetch(`http://localhost:3000/teams/${teamData.id}`,{
         method:"PATCH",
       	headers: {"Content-Type": "application/json"},
@@ -114,5 +115,6 @@ function updateTeam(foundUser, teamData, currentUser) {
   .then(updatedTeamData => {
     let teamInstance = new Team (updatedTeamData)
     teamInstance.render()
+    addTeamMateFuncEvent(teamData, currentUser)
   })
 }

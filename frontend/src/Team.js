@@ -4,7 +4,6 @@ class Team {
     this.users = team.users
 }
   render(){
-    debugger
     let displayContainer = document.querySelector('.display-container')
     displayContainer.innerHTML = ''
     let teamCard = document.createElement('div')
@@ -18,7 +17,11 @@ class Team {
       teamMateList.append(teamMateEl)
     })
     teamCard.append(teamName, teamMateList)
+    let teamMateBttn = document.createElement('button')
+    teamMateBttn.innerText = "Add TeamMates"
+    teamMateBttn.id = 'button-mate'
     displayContainer.appendChild(teamCard)
+    displayContainer.append(teamMateBttn)
   }
 }
 
