@@ -18,6 +18,16 @@ class User {
   renderMatches(){
     let dispContainer = document.querySelector(".display-container")
     dispContainer.innerHTML = ''
+
+    let addMatchBtn = document.createElement('button')
+    addMatchBtn.id = 'add-match-button'
+    addMatchBtn.classList = 'btn btn-outline-dark my-2 my-sm-0'
+    addMatchBtn.innerText = 'Add New Match'
+    addMatchBtn.addEventListener('click', () => {
+      addMatchBtn.remove()
+      Match.renderMatchForm(this, addMatchBtn)
+    })
+    
     let matchTable = document.createElement('table')
     matchTable.classList = "table"
     matchTable.innerHTML = `
@@ -38,7 +48,7 @@ class User {
       tableBody.prepend(foundMatch.render())
     })
     matchTable.appendChild(tableBody)
-    dispContainer.appendChild(matchTable)
+    dispContainer.append(addMatchBtn, matchTable)
   }
 
   renderHeroes(){
