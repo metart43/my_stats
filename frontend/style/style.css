@@ -23,6 +23,11 @@
   padding-top: 10px;
 }
 
+#add-match{
+  position: absolute;
+  bottom: 15px;
+}
+
 .container{
     padding-top: 25px;
     padding-left: 100px;

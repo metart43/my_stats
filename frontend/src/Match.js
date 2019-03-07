@@ -50,6 +50,55 @@ class Match {
       foundHero.result = (foundHero.result + this.result? 1 : 0) / foundHero.played
     }
   }
+
+  static renderMatchForm(user) {
+    let matchForm = document.createElement('form')
+
+    matchForm.innerHTML = `
+    <div class="form-row">
+      <div class="form-group col-md-3">
+        <label>Hero</label>
+        <select class="form-control" name="hero">
+          <option selected>Hero...</option>
+        </select>
+      </div>
+      <div class="form-group col-md-2">
+      <label>Kills</label>
+      <input type="number" min="0" class="form-control" name="kills" placeholder="Kills">
+      </div>
+      <div class="form-group col-md-2">
+        <label>Deaths</label>
+        <input type="number" min="0" class="form-control" name="deaths" placeholder="Deaths">
+      </div>
+      <div class="form-group col-md-2">
+        <label>Assists</label>
+        <input type="number" min="0" class="form-control" name="assists" placeholder="Assists">
+      </div>
+      <div class="form-group col-md-2">
+          <label>Result</label>
+          <select class="form-control" name="result">
+            <option>W</option>
+            <option>L</option>
+          </select>
+      </div>
+      <div class="col-md-1" id="button-place">
+      </div>
+    </div>`
+
+    let addMatch = document.createElement('button')
+    addMatch.id="add-match"
+    addMatch.classList = 'btn btn-outline-dark my-2 my-sm-0'
+    addMatch.innerText = 'Add'
+    addMatch.addEventListener('click', () => {
+      Match.addNewMatch(user)
+    })
+    document.querySelector('.display-container').prepend(matchForm)
+    document.querySelector('#button-place').append(addMatch)
+  }
+
+  static addNewMatch(user) {
+    console.log(user)
+  }
 }
 
 Match.all = []
