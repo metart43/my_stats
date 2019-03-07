@@ -148,7 +148,6 @@ class User {
   }
 
   renderTeams(){
-    debugger
     let dispContainer = document.querySelector(".display-container")
     dispContainer.innerHTML = ''
     let teamTable = document.createElement('table')
@@ -163,7 +162,6 @@ class User {
     `
     let tableBody = document.createElement('tbody')
     this.teams.forEach(team => {
-      debugger
       let teamRow = document.createElement('tr')
       let teamNameHeader = document.createElement('th')
       teamNameHeader.innerText = `${team.name}`
