@@ -1,12 +1,14 @@
 document.addEventListener('DOMContentLoaded',() =>{
   document.querySelector('#show-user').addEventListener('click', () => {
     event.preventDefault()
-    let searchUser = document.querySelector('#search-user').value
-    getUserUrl(searchUser)
-    fetchUserInfo(searchUser)
+    let searchUser = document.querySelector('#search-user')
+    let userName = searchUser.value
+    searchUser.value = ''
+    fetchUserInfo(userName)
   })
 })
 
+// Returns if user is found in the User.js class
 function currentUserFunc(userData) {
   return User.all.find(user => user.id === userData.id)
 }
@@ -17,15 +19,18 @@ function getUserUrl() {
 }
 
 // Grab user from API
-function fetchUserInfo(searchUser) {
-
-  fetch(getUserUrl() + searchUser)
+function fetchUserInfo(userName) {
+  fetch(getUserUrl() + userName)
     .then(resp => resp.json())
     .then(userData => {
-      let userInstance = new User(userData)
-      document.querySelector('#user-name').appendChild(userInstance.render())
+      let isUser = currentUserFunc(userData)
+      if (!isUser) {
+        isUser = new User(userData)
+      }
+      isUser.render()
       navButtons(userData)
     })
+    .catch(error => User.createUserForm(userName))
 }
 
 function navButtons(user) {

@@ -7,6 +7,10 @@
   padding-left: 25px;
 }
 
+.no-user-alert{
+  color: red
+}
+
 #side-button1-match{
   padding-top: 10px;
 }
