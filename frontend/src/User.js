@@ -41,8 +41,13 @@ class User {
     </tr>
     </thead>
     `
+
+    let sorted = this.matches.sort(function (a, b) {
+      return new Date(a.created_at) - new Date(b.created_at)
+    })
+
     let tableBody = document.createElement('tbody')
-    this.matches.forEach(userMatch => {
+    sorted.forEach(userMatch => {
       let foundMatch = Match.all.find(match => match.id === userMatch.id)
       tableBody.prepend(foundMatch.render())
     })
@@ -67,16 +72,29 @@ class User {
     </tr>
     </thead>
     `
+    let sorted = this.heroes.sort(function (a, b) {
+      var nameA = a.hero.name.toUpperCase(); // ignore upper and lowercase
+      var nameB = b.hero.name.toUpperCase(); // ignore upper and lowercase
+      if (nameA < nameB) {
+        return -1;
+      }
+      if (nameA > nameB) {
+        return 1;
+      }
+      // names must be equal
+      return 0;
+    })
+    
     let tableBody = document.createElement('tbody')
-    this.heroes.forEach(hero => {
+    sorted.forEach(hero => {
       let heroRow = document.createElement('tr')
       heroRow.innerHTML = `
-      <th scope="row">${hero.hero.name}</th>
-      <td>${hero.kills.toFixed(2)}</td>
-      <td>${hero.deaths.toFixed(2)}</td>
-      <td>${hero.assists.toFixed(2)}</td>
-      <td>${(hero.result * 100).toFixed(2)}%</td>
-      <td>${hero.played}</td>
+      <th class="align-middle" scope="row"><img src="${hero.hero.image}" alt=""> ${hero.hero.name}</th>
+      <td class="align-middle">${hero.kills.toFixed(2)}</td>
+      <td class="align-middle">${hero.deaths.toFixed(2)}</td>
+      <td class="align-middle">${hero.assists.toFixed(2)}</td>
+      <td class="align-middle">${(hero.result * 100).toFixed(2)}%</td>
+      <td class="align-middle">${hero.played}</td>
       `
       tableBody.appendChild(heroRow)
     })

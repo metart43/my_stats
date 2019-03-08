@@ -21,14 +21,13 @@ class Match {
   // Renders data from each match
   render() {
     let matchRow = document.createElement('tr')
-
     matchRow.innerHTML = `
-      <th>${this.time}</th>
-      <td>${this.hero.name}</td>
-      <td>${this.kills}</td>
-      <td>${this.deaths}</td>
-      <td>${this.assists}</td>
-      <td>${this.result? "Win" : "Loss"}</td>
+      <th class="align-middle">${this.time}</th>
+      <td class="align-middle"><img src="${this.hero.image}" alt=""> ${this.hero.name}</td>
+      <td class="align-middle">${this.kills}</td>
+      <td class="align-middle">${this.deaths}</td>
+      <td class="align-middle">${this.assists}</td>
+      <td class="align-middle">${this.result? "Win" : "Loss"}</td>
     `
     return matchRow
   }

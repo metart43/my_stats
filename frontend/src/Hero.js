@@ -2,6 +2,7 @@ class Hero {
   constructor(hero) {
     this.id = hero.id
     this.name = hero.name
+    this.image = hero.image
     Hero.all.push(this)
   }
 
