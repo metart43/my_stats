@@ -48,7 +48,7 @@ class User {
             display: true,
             text: 'Most Played Heroes Average Kills'
           },
-          aspectRatio: 1.25
+          aspectRatio: 1.5
       }
     })
   }
