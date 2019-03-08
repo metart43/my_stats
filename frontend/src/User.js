@@ -63,6 +63,7 @@ class User {
     <th scope="col">Deaths</th>
     <th scope="col">Assists</th>
     <th scope="col">Win %</th>
+    <th scope="col">Played</th>
     </tr>
     </thead>
     `
@@ -71,10 +72,11 @@ class User {
       let heroRow = document.createElement('tr')
       heroRow.innerHTML = `
       <th scope="row">${hero.hero.name}</th>
-      <td>${hero.kills}</td>
-      <td>${hero.deaths}</td>
-      <td>${hero.assists}</td>
-      <td>${hero.result * 100}%</td>
+      <td>${hero.kills.toFixed(2)}</td>
+      <td>${hero.deaths.toFixed(2)}</td>
+      <td>${hero.assists.toFixed(2)}</td>
+      <td>${(hero.result * 100).toFixed(2)}%</td>
+      <td>${hero.played}</td>
       `
       tableBody.appendChild(heroRow)
     })

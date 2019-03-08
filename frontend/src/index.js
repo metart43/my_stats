@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded',() =>{
+  Hero.fetchHero()
   document.querySelector('#show-user').addEventListener('click', () => {
     event.preventDefault()
     let searchUser = document.querySelector('#search-user')
