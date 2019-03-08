@@ -37,11 +37,11 @@ class Match {
     let foundUser = User.all.find(user => user.id === this.user.id)
     let foundHero = foundUser.heroes.find(hero => hero.hero.id === this.hero.id)
     if (foundUser && !foundHero) {
-      foundUser.heroes.push({hero: this.hero, 
-                            kills: this.kills, 
-                            deaths: this.deaths, 
-                            assists: this.assists, 
-                            result: this.result? 1 : 0, 
+      foundUser.heroes.push({hero: this.hero,
+                            kills: this.kills,
+                            deaths: this.deaths,
+                            assists: this.assists,
+                            result: this.result? 1 : 0,
                             played: 1})
     } else {
       foundHero.kills = (foundHero.kills + this.kills) / ++foundHero.played
@@ -82,7 +82,7 @@ class Match {
       <div class="col-md-1" id="button-place">
       </div>
     </div>`
-    
+
     let addMatch = document.createElement('button')
     addMatch.id="add-match"
     addMatch.classList = 'btn btn-outline-dark my-2 my-sm-0'

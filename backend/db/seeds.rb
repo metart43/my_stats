@@ -173,10 +173,10 @@ heroes.each {|hero| Hero.create(hero)}
 
 resultRand = [true, false]
 
-allUsers.each do |user| 
-  20.times do |i| 
+allUsers.each do |user|
+  20.times do |i|
     match = Match.create({
-    user: user, 
+    user: user,
     hero_id: Faker::Number.between(1, heroes.length),
     kills: Faker::Number.between(0, 20),
     deaths: Faker::Number.between(0, 20),
@@ -194,5 +194,5 @@ navi = Team.create(name: "Na'Vi")
 liquid = Team.create(name: 'Liquid')
 
 
-navi.users << [allUsers[0], allUsers[1], allUsers[2], allUsers[3]]
-liquid.users << [allUsers[4], allUsers[2], allUsers[5]]
+navi.users << [allUsers[0], allUsers[1], allUsers[2], allUsers[3], allusers[5]]
+liquid.users << [allUsers[4], allUsers[2], allUsers[5], allUsers[1], allUsers[1]]

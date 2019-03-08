@@ -21,7 +21,7 @@ class User {
 
     let addMatchBtn = document.createElement('button')
     addMatchBtn.id = 'add-match-button'
-    addMatchBtn.classList = 'btn btn-outline-dark my-2 my-sm-0'
+    addMatchBtn.classList = 'btn btn-outline-dark mb-2'
     addMatchBtn.innerText = 'Add New Match'
     addMatchBtn.addEventListener('click', () => {
       addMatchBtn.remove()
@@ -118,7 +118,7 @@ class User {
       // names must be equal
       return 0;
     })
-    
+
     let tableBody = document.createElement('tbody')
     sorted.forEach(hero => {
       let heroRow = document.createElement('tr')
@@ -204,12 +204,16 @@ class User {
     let dispContainer = document.querySelector(".display-container")
     dispContainer.innerHTML = ''
     let teamTable = document.createElement('table')
-    teamTable.className = 'table'
+    teamTable.className = 'table table-hover'
     teamTable.innerHTML = `
-    <thead>
+    <thead class="thead-dark">
     <tr>
-    <th scope="col">Team Name</th>
-    <th scope="col">Team Players</th>
+    <th scope="col">Name</th>
+    <th scope="col">Carry</th>
+    <th>Middle</th>
+    <th>Offlane</th>
+    <th>Support</th>
+    <th>Support</th>
     </tr>
     </thead>
     `
