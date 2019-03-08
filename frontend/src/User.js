@@ -57,18 +57,9 @@ class User {
       dataArr.push({
         datasets: [{
           data: [foundMatch.kills, foundMatch.deaths, foundMatch.assists],
-          backgroundColor: [
-            'red',
-            'black',
-            'blue'
-          ]
+          backgroundColor: ['red', 'black', 'blue']
         }],
-        // These labels appear in the legend and in the tooltips when hovering different arcs
-        labels: [
-          'Kills',
-          'Deaths',
-          'Assists'
-        ]
+        labels: ['Kills', 'Deaths', 'Assists']
       })
     })
     let newCounter = 0
@@ -103,6 +94,7 @@ class User {
     <th scope="col">Assists</th>
     <th scope="col">Win %</th>
     <th scope="col">Played</th>
+    <th scope="col" class="text-center">K/D/A Average</th>
     </tr>
     </thead>
     `
@@ -120,6 +112,8 @@ class User {
     })
     
     let tableBody = document.createElement('tbody')
+    let dataArr = []
+    let counter = 0
     sorted.forEach(hero => {
       let heroRow = document.createElement('tr')
       heroRow.innerHTML = `
@@ -129,11 +123,31 @@ class User {
       <td class="align-middle">${hero.assists.toFixed(2)}</td>
       <td class="align-middle">${(hero.result * 100).toFixed(2)}%</td>
       <td class="align-middle">${hero.played}</td>
+      <td class="align-left"><canvas id="myChart-${++counter}"></canvas></td>
       `
+      dataArr.push({
+        datasets: [{
+          data: [hero.kills, hero.deaths, hero.assists],
+          backgroundColor: ['red', 'black', 'blue']
+        }],
+        labels: ['Kills', 'Deaths', 'Assists']
+      })
       tableBody.appendChild(heroRow)
     })
     heroTable.appendChild(tableBody)
     dispContainer.appendChild(heroTable)
+    let newCounter = 0
+    dataArr.forEach(data => {
+      var ctx = document.querySelector(`#myChart-${++newCounter}`).getContext('2d');
+      var myDoughnutChart = new Chart(ctx, {
+        type: 'doughnut',
+        data: data,
+        options: {
+          aspectRatio: 4,
+          legend: {display: false}
+        }
+      });
+    })
   }
 
   static createUserForm(userName) {
