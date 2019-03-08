@@ -28,7 +28,7 @@ class Match {
       <td class="align-middle">${this.deaths}</td>
       <td class="align-middle">${this.assists}</td>
       <td class="align-middle">${this.result? "Win" : "Loss"}</td>
-      <td class="align-middle"><canvas id="myChart-${counter}"></canvas></td>
+      <td class="align-left text-md-left"><canvas id="myChart-${counter}"></canvas></td>
     `
     return matchRow
   }

@@ -29,17 +29,17 @@ class User {
     })
 
     let matchTable = document.createElement('table')
-    matchTable.classList = "table"
+    matchTable.classList = "table table-hover"
     matchTable.innerHTML = `
-    <thead>
+    <thead class="thead-dark">
     <tr>
-    <th scope="col">Match Played</th>
+    <th scope="col">Played</th>
     <th scope="col">Hero</th>
     <th scope="col">Kills</th>
     <th scope="col">Deaths</th>
     <th scope="col">Assists</th>
     <th scope="col">Win/Loss</th>
-    <th scope="col">Chart</th>
+    <th scope="col" class="text-center">K/D/A Chart</th>
     </tr>
     </thead>
     `
@@ -93,9 +93,9 @@ class User {
     let dispContainer = document.querySelector(".display-container")
     dispContainer.innerHTML = ''
     let heroTable = document.createElement('table')
-    heroTable.classList = "table"
+    heroTable.classList = "table table-hover"
     heroTable.innerHTML = `
-    <thead>
+    <thead class="thead-dark">
     <tr>
     <th scope="col">Name</th>
     <th scope="col">Kills</th>
