@@ -27,7 +27,7 @@ class User {
       addMatchBtn.remove()
       Match.renderMatchForm(this, addMatchBtn)
     })
-    
+
     let matchTable = document.createElement('table')
     matchTable.classList = "table"
     matchTable.innerHTML = `
