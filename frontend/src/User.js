@@ -39,6 +39,7 @@ class User {
     <th scope="col">Deaths</th>
     <th scope="col">Assists</th>
     <th scope="col">Win/Loss</th>
+    <th scope="col">Chart</th>
     </tr>
     </thead>
     `
@@ -48,12 +49,44 @@ class User {
     })
 
     let tableBody = document.createElement('tbody')
+    let dataArr = []
+    let counter = 0
     sorted.forEach(userMatch => {
       let foundMatch = Match.all.find(match => match.id === userMatch.id)
-      tableBody.prepend(foundMatch.render())
+      tableBody.prepend(foundMatch.render(++counter))
+      dataArr.push({
+        datasets: [{
+          data: [foundMatch.kills, foundMatch.deaths, foundMatch.assists],
+          backgroundColor: [
+            'red',
+            'black',
+            'blue'
+          ]
+        }],
+        // These labels appear in the legend and in the tooltips when hovering different arcs
+        labels: [
+          'Kills',
+          'Deaths',
+          'Assists'
+        ]
+      })
     })
+    let newCounter = 0
     matchTable.appendChild(tableBody)
     dispContainer.append(addMatchBtn, matchTable)
+    dataArr.forEach(data => {
+      var ctx = document.querySelector(`#myChart-${++newCounter}`).getContext('2d');
+      var myDoughnutChart = new Chart(ctx, {
+        type: 'doughnut',
+        data: data,
+        options: {
+          aspectRatio: 4,
+          legend: {
+            display: false
+          }
+        }
+      });
+    })
   }
 
   renderHeroes(){

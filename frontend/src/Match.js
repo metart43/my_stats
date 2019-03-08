@@ -19,7 +19,7 @@ class Match {
   }
 
   // Renders data from each match
-  render() {
+  render(counter) {
     let matchRow = document.createElement('tr')
     matchRow.innerHTML = `
       <th class="align-middle">${this.time}</th>
@@ -28,6 +28,7 @@ class Match {
       <td class="align-middle">${this.deaths}</td>
       <td class="align-middle">${this.assists}</td>
       <td class="align-middle">${this.result? "Win" : "Loss"}</td>
+      <td class="align-middle"><canvas id="myChart-${counter}"></canvas></td>
     `
     return matchRow
   }
