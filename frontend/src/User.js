@@ -11,8 +11,46 @@ class User {
   }
 
   render() {
-    document.querySelector('.display-container').innerHTML = ''
+    let dispContainer = document.querySelector('.display-container')
+    dispContainer.innerHTML = ''
     document.querySelector('#user-name').innerText = this.name
+
+    let lineChart = document.createElement('canvas')
+    lineChart.id = "myChart"
+
+    dispContainer.append(lineChart)
+
+    let sorted = this.heroes.sort(function (a, b) {
+      return a.played - b.played
+    })
+
+    let dataObj = {
+      labels: [],
+      datasets: [{
+        backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850"],
+        data: []
+      }]
+    }
+    for(let i = 0; i < 5; i++) {
+      dataObj.labels.push(sorted[i].hero.name)
+      dataObj.datasets[0].data.push(sorted[i].kills)
+    }
+    var ctx = document.querySelector('#myChart').getContext('2d');
+    
+    var myLineChart = new Chart(ctx, {
+      type: 'bar',
+      data: dataObj,
+      options: {
+        legend: {
+            display: false
+          },
+          title: {
+            display: true,
+            text: 'Most Played Heroes Average Kills'
+          },
+          aspectRatio: 1.25
+      }
+    })
   }
 
   renderMatches(){
